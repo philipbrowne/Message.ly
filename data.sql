@@ -13,8 +13,8 @@ CREATE TABLE users (
 
 CREATE TABLE messages (
     id SERIAL PRIMARY KEY,
-    from_username text NOT NULL REFERENCES users,
-    to_username text NOT NULL REFERENCES users,
+    from_username text NOT NULL REFERENCES users ON DELETE CASCADE,
+    to_username text NOT NULL REFERENCES users ON DELETE CASCADE,
     body text NOT NULL,
     sent_at timestamp with time zone NOT NULL,
     read_at timestamp with time zone

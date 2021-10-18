@@ -2,16 +2,18 @@
 
 // read .env files and make environmental variables
 
-require("dotenv").config();
+require('dotenv').config();
 
-const DB_URI = (process.env.NODE_ENV === "test")
-  ? "postgresql:///messagely_test"
-  : "postgresql:///messagely";
+const DB_URI =
+  process.env.NODE_ENV === 'test'
+    ? 'postgresql:///messagely_test'
+    : 'postgresql:///messagely';
 
-const SECRET_KEY = process.env.SECRET_KEY || "secret";
+const SECRET_KEY =
+  process.env.SECRET_KEY ||
+  `$2b$12$YFsH4h/hKyaC3FwLffyhrezQD/iaAi4zvLe6btejwFdndZs99XUnS`;
 
 const BCRYPT_WORK_FACTOR = 12;
-
 
 module.exports = {
   DB_URI,
